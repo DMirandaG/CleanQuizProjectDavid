@@ -103,12 +103,13 @@ public class QuestionPresenter extends GenericPresenter
   @Override
   public void onNextBtnClicked(){
     loadNextQuestion();
-    getView().hideAnswer();
+
   }
 
   @Override
   public void onTrueBtnClicked() {
     onAnswerBtnClicked(true);
+
   }
 
   /////////////////////////////////////////////////////////////////////////////////////
@@ -172,6 +173,8 @@ public class QuestionPresenter extends GenericPresenter
 
   private void settingInitialState(){
     Log.d(TAG, "calling settingInitialState()");
+
+    answerVisible = false;
     setButtonLabels();
     checkVisibility();
     getView().setQuestion(getModel().getCurrentQuestionLabel());

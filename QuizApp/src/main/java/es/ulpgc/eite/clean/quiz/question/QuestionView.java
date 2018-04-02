@@ -38,6 +38,8 @@ public class QuestionView
       public void onClick(View view) {
         Log.d(TAG, "calling onTrueBtnClicked()");
         getPresenter().onTrueBtnClicked();
+        buttonFalse.setEnabled(false);
+        buttonCheat.setEnabled(false);
       }
     });
     buttonFalse = (Button) findViewById(R.id.buttonFalse);
@@ -46,6 +48,8 @@ public class QuestionView
       public void onClick(View view) {
         Log.d(TAG, "calling onFalseBtnClicked()");
         getPresenter().onFalseBtnClicked();
+        buttonTrue.setEnabled(false);
+        buttonCheat.setEnabled(false);
       }
     });
     buttonCheat = (Button) findViewById(R.id.buttonCheat);
@@ -54,6 +58,7 @@ public class QuestionView
       public void onClick(View view) {
         Log.d(TAG, "calling onCheatBtnClicked()");
         getPresenter().onCheatBtnClicked();
+
       }
     });
     buttonNext = (Button) findViewById(R.id.buttonNext);
@@ -62,6 +67,9 @@ public class QuestionView
       public void onClick(View view) {
         Log.d(TAG, "calling onNextBtnClicked()");
         getPresenter().onNextBtnClicked();
+        buttonFalse.setEnabled(true);
+        buttonCheat.setEnabled(true);
+        buttonTrue.setEnabled(true);
       }
     });
   }
