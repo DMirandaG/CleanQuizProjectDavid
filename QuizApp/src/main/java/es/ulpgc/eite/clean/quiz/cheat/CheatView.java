@@ -105,4 +105,10 @@ public class CheatView
     labelAnswer.setVisibility(View.VISIBLE);
   }
 
+  @Override
+  public void finishScreen() {
+    Log.d(TAG, "calling finishScreen()");
+    finish();
+  }
+
 }

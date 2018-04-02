@@ -1,6 +1,7 @@
 package es.ulpgc.eite.clean.quiz.cheat;
 
 
+import android.content.Context;
 import android.util.Log;
 
 import es.ulpgc.eite.clean.mvp.ContextView;
@@ -193,5 +194,27 @@ public class CheatPresenter extends GenericPresenter
       getView().setFalseButton(getModel().getFalseLabel());
       getView().setConfirm(getModel().getConfirmLabel());
     }
+  }
+
+  @Override
+  public Context getManagedContext() {
+    return getActivityContext();
+  }
+
+  @Override
+  public void destroyView() {
+    if (isViewRunning()) {
+      getView().finishScreen();
+    }
+  }
+
+  @Override
+  public boolean getToolbarVisibility() {
+    return toolbarVisible;
+  }
+
+  @Override
+  public boolean getAnswerBtnClicked() {
+    return answerBtnClicked;
   }
 }

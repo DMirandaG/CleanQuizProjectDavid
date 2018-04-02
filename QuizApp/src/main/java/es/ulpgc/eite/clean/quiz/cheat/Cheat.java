@@ -1,5 +1,7 @@
 package es.ulpgc.eite.clean.quiz.cheat;
 
+import android.content.Context;
+
 import es.ulpgc.eite.clean.mvp.ContextView;
 import es.ulpgc.eite.clean.mvp.Model;
 import es.ulpgc.eite.clean.mvp.Presenter;
@@ -21,7 +23,10 @@ public interface Cheat {
   }
 
   interface CheatToQuestion {
-
+    boolean getToolbarVisibility();
+    Context getManagedContext();
+    void destroyView();
+    boolean getAnswerBtnClicked();
   }
 
 
@@ -47,6 +52,8 @@ public interface Cheat {
     void setFalseButton(String label);
     void setTrueButton(String label);
     void showAnswer();
+
+    void finishScreen();
   }
 
   /**

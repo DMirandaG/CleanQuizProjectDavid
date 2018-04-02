@@ -50,7 +50,16 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
 
   @Override
   public void backToQuestionScreen(Cheat.CheatToQuestion presenter){
+    Log.d(TAG, "calling savingCheatState()");
+    cheatToQuestionState = new QuestionState();
+    cheatToQuestionState.toolbarVisible =  presenter.getToolbarVisibility();
+    cheatToQuestionState.answerBtnClicked = presenter.getAnswerBtnClicked();
 
+    Context view = presenter.getManagedContext();
+    if (view != null) {
+      Log.d(TAG, "calling finishingCurrentScreen()");
+      presenter.destroyView();
+    }
   }
 
   /////// Navigation ////////////////////////////////////////////////////////////////////
