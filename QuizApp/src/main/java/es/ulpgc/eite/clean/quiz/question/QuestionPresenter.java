@@ -103,6 +103,7 @@ public class QuestionPresenter extends GenericPresenter
   @Override
   public void onNextBtnClicked(){
     loadNextQuestion();
+    getView().hideAnswer();
   }
 
   @Override
